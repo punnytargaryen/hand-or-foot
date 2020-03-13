@@ -1,13 +1,8 @@
 #
-# Name: hand-or-foot
-# Description: A Deep Neural Network powered image classifier, trained to tell the difference between hands and feet
+# Name:ASL Alphabet Classifier
+# Description: A Deep Neural Network powered image classifier, trained to tell the difference between different American Sign Language Alphabets
 #              exposed via a web-app. This project has been tested with and deployed by Heroku on a free instance.
-# Author: 0D0AResearch
-# Medium:medium.com/@0D0AResearch
-# Twitter: @0D0AResearch
-# GitHub: github.com/0D0AResearch
-#
-# Special thanks: Lankinen for https://medium.com/@lankinen/fastai-model-to-production-this-is-how-you-make-web-app-that-use-your-model-57d8999450cf
+
 
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse, HTMLResponse, RedirectResponse
@@ -32,7 +27,35 @@ def predict_image_from_bytes(input_bytes):
 
 
 app = Starlette(debug=True)
-classes = ['foot', 'hand']
+classes = ['A',
+ 'B',
+ 'C',
+ 'D',
+ 'E',
+ 'F',
+ 'G',
+ 'H',
+ 'I',
+ 'J',
+ 'K',
+ 'L',
+ 'M',
+ 'N',
+ 'O',
+ 'P',
+ 'Q',
+ 'R',
+ 'S',
+ 'T',
+ 'U',
+ 'V',
+ 'W',
+ 'X',
+ 'Y',
+ 'Z',
+ 'del',
+ 'nothing',
+ 'space']
 defaults.device = torch.device('cpu')
 learn = load_learner('models')
 
@@ -79,10 +102,10 @@ def form(request):
 
     <div id="blueBox">       
     <div style="text-align:center">
-    <h1> Suffering from Phalanges Agnosia? </h2>
+    <h1> Do you have a deaf friend you can't understand? </h2>
     
     <p>
-    <h3> Suffer no more, this web-app can help you tell the difference between a hand and a foot </h2>
+    <h3> Suffer no more, this web-app can help you</h2>
     </div>
     <p>
     <p>
