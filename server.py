@@ -133,5 +133,5 @@ def form(request):
 
 
 if __name__ == '_main__':
-    port1 = int(os.environ.get('PORT', $PORT))
+    port1 = process.env.PORT
     uvicorn.run(app, host='0.0.0.0', port=port1)
